@@ -1,0 +1,684 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bdwater.meterinput.main.MeterInputFragment"
+    android:orientation="vertical">
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:indeterminate="true" />
+    <include layout="@layout/network_error"/>
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/fakeIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_big_meter"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="5dp"
+                android:textSize="16dp"
+                android:text="补差主表"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/contentView">
+
+            <TableLayout
+                android:padding="10dp"
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2"
+                android:transitionGroup="false"
+                android:touchscreenBlocksFocus="false"
+                android:baselineAligned="false"
+                android:clickable="false"
+                android:measureWithLargestChild="true">
+
+                <!-- customer no and water status, no tag -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/customNoEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="用户编号"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/waterStatusEditText"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:hint="抄表状态"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:inputType="none"
+                                android:enabled="false"
+                                android:textColor="#FF0000" />
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                </TableRow>
+
+                <!-- customer name, no tag -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2">
+                        <EditText
+                            android:id="@+id/nameEditText"
+                            android:hint="用户名称"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- meter position, no tag -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2">
+                        <EditText
+                            android:id="@+id/meterPositionEditText"
+                            android:hint="水表位置"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- last, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/lastDateEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="上次抄表日期"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/lastValueEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="上次抄表指针"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- current, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:hint="本次抄表日期"
+                            android:id="@+id/currentDateEditText"
+                            android:enabled="false"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/currentValueEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="本次抄表指针"
+                            android:selectAllOnFocus="true"
+                            android:enabled="false"
+                            android:digits="0123456789"
+                            android:inputType="numberSigned" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- turn or replace meter, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="1"
+                        android:layout_gravity="center_vertical">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="转换表"
+                            android:enabled="false"
+                            android:id="@+id/baseValueCheckBox"
+                            android:layout_marginLeft="-5dp" />
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/baseValueSwitch"
+                            android:checked="false"
+                            android:textOn="换"
+                            android:textOff="转"
+                            android:showText="true"
+                            android:enabled="false"
+                            android:splitTrack="false"
+                            android:layout_marginLeft="8dp"
+                            android:elegantTextHeight="false"
+                            android:contextClickable="false"
+                            android:nestedScrollingEnabled="false"
+                            android:singleLine="false"
+                            android:switchMinWidth="60dp" />
+                    </LinearLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/baseValueEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberSigned"
+                            android:selectAllOnFocus="true"
+                            android:digits="0123456789"
+                            android:hint="转换指针"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                </TableRow>
+
+                <!-- serial meter, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/isSerialMeterCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="是否串表"
+                        android:enabled="false"
+                        android:layout_marginLeft="-5dp"
+                        android:layout_gravity="center_vertical"
+                        />
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/serialValueEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="串标水量"
+                            android:selectAllOnFocus="true"
+                            android:digits="0123456789"
+                            android:inputType="numberSigned"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- water status spinner, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:id="@+id/waterStatusView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:layout_marginBottom="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="查表状态"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="18dp"
+                        />
+                    <FrameLayout
+                        android:background="#eaeaea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:id="@+id/waterStatusSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"/>
+                    </FrameLayout>
+                </TableRow>
+
+                <!-- pay before, no tag -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/fakeLastDateEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="上次抄表日期"
+                            android:inputType="none"
+                            android:visibility="gone"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/payBeforeEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="缴费截止日期"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- fake current date , no tag -->
+                <TableRow
+                    android:tag="FakeMeterSection"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2">
+                        <EditText
+                            android:id="@+id/fakeCurrentDateEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="本次抄表日期"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:inputType="none"/>
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- customerPrice, fake water price id, tag: FakeMeterSection -->
+                <TableRow
+                    android:tag="FakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:padding="4dp"
+                    android:layout_marginBottom="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="补差用水性质"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="18dp"/>
+                    <FrameLayout
+                        android:background="#eaeaea"
+                        android:layout_width="match_parent"
+
+                        android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/fakeWaterPriceSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"/>
+                    </FrameLayout>
+                </TableRow>
+
+                <!-- qty, fake price, tag: FakeMeterSection -->
+                <TableRow
+                    android:tag="FakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/fakeWaterQuantityEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="补差水量"
+                            android:minWidth="150dp"
+                            android:enabled="false"
+                            android:selectAllOnFocus="true"
+                            android:digits="0123456789"
+                            android:inputType="numberSigned" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/fakePriceEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="补差水价"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- customerPrice, fake water price id, tag: FakeMeterSection -->
+                <TableRow
+                    android:tag="FakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/fakeMainMeterPriceEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="主表水价"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/fakePayEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="补差金额"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- fake comment, tag: FakeMeterSection -->
+                <TableRow
+                    android:tag="FakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2">
+                        <EditText
+                            android:id="@+id/fakeCommentEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="备注"
+                            android:inputType="text"
+                            android:enabled="true"
+                            android:maxLines="3"
+                            android:maxLength="100" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- fake total, tag: NoFakeMeterSection-->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2"
+                        android:weightSum="3"
+                        android:orientation="horizontal">
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <EditText
+                                android:id="@+id/fakeTotalPayEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="补差金额"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:inputType="numberSigned"
+                                android:enabled="false" />
+                        </android.support.design.widget.TextInputLayout>
+                        <!--<Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="4dp"
+                            android:text="补差详情"
+                            android:minWidth="150dp"
+                            android:id="@+id/fakeButton" />-->
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/waterQuantityEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="用水量|单价"
+                                android:inputType="none"
+                                android:enabled="false" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/currentPayEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="金额"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:inputType="none"
+                                android:enabled="false" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                </TableRow>
+
+                <!-- qty, price and pay, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <!--<android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/waterQuantityEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="用水量|单价"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/currentPayEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="金额"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:inputType="none"
+                            android:enabled="false" />
+                    </android.support.design.widget.TextInputLayout>-->
+                </TableRow>
+
+                <!-- current comment, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2">
+                        <EditText
+                            android:id="@+id/currentCommentEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="本月备注"
+                            android:inputType="text"
+                            android:enabled="true"
+                            android:maxLines="3"
+                            android:maxLength="100" />
+                    </android.support.design.widget.TextInputLayout>
+                </TableRow>
+
+                <!-- comment, tag: NoFakeMeterSection -->
+                <TableRow
+                    android:tag="NoFakeMeterSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2"
+                        android:orientation="vertical">
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                            <EditText
+                                android:id="@+id/commentEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="永久备注"
+                                android:inputType="text"
+                                android:enabled="false"
+                                android:maxLines="3"
+                                android:maxLength="100" />
+                        </android.support.design.widget.TextInputLayout>
+                        <Button
+                            android:id="@+id/editCommentButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="修改备注"/>
+                    </LinearLayout>
+
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ff0000"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/maintenceView"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/maintenance"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="水表故障"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@color/footerBackground"
+        android:id="@+id/actionView" >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提交"
+            android:textAlignment="center"
+            android:id="@+id/submitButton"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="补差详情"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/fakeButton" />
+    </LinearLayout>
+</LinearLayout>

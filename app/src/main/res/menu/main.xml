@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_previous"
+        app:actionLayout="@layout/menu_prev"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_next"
+        app:actionLayout="@layout/menu_next"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="搜索"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_navigate"
+        android:icon="@drawable/ic_navigate"
+        android:title="导航"
+        app:showAsAction="always"/>
+</menu>

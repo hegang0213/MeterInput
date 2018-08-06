@@ -1,0 +1,72 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/refreshLayout"
+    tools:context="com.bdwater.meterinput.metertask.MeterTaskListFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="下拉获取最新数据"/>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:indeterminate="true"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <ExpandableListView
+            android:id="@+id/expandableListView"
+            android:layout_below="@+id/topLayout"
+            android:layout_above="@+id/actionView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ExpandableListView>
+        <LinearLayout
+            android:id="@+id/actionView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/intoEditModeButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="进入编辑模式"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/exitEditModeButton"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="退出编辑模式"/>
+            <Button
+                android:id="@+id/deleteButton"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="删除选择的申请"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

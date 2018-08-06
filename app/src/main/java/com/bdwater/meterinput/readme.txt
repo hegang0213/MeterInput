@@ -1,0 +1,77 @@
+- <base>
+    - AppUtils
+        - CApplication App
+        - showAlertDialog(context, tile, message, listener)
+        - setMargin(view, r, t, l, b)
+        - closeSoftInput(activity)
+    - CurrentContext
+        - getBooks()
+        - getCurrentBook(id)
+        - getMeters()
+        - getMeterById(id)
+        - getCurrentMeter()
+        - setCurrentMeter(meter)
+        - getNextMeter()
+        - getPrevMeter()
+        - getWaterStatuses()
+        - indexOfWaterStatus(CString)
+        - getFakeTitles()
+        - setFakeTitles()
+        - getFakeWaterPrices()
+        - setFakeWaterPrices()
+        - indexOfFakeWaterPrice(id)
+    - NetworkUtils
+        - webUrlCount()
+        - getCurrentUrlIndex()
+        - setWebUrl()
+        - getVersionCode(context)
+        - getVersionName(context)
+    - DoubleHelper      about functions of calculation of double
+- <main>
+- <meterTask>
+    - MeterTaskActivity
+    - MeterTaskActivityFragment
+    - MeterTaskFragmentPageAdapter
+    - MeterTaskListFragment
+- <model>
+    - User
+    - Book, Meter, FakeMeter
+    - CustomerBill, WaterLog
+    - MeterTask
+    - WaterStatus, FakeTitle, FakeWaterPrice
+- <soap>
+    - ISoapAsyncTaskListener    is used for SoapAsyncTask
+    - SoapAsyncTask             Makes AsyncTask class for calling SoapClient
+        - SoapAsyncTask(soapMethodName, ISoapAsyncTaskListener)
+            soapMethodName is of static String of SoapClient,
+            ISoapAsyncTaskListener is callback object
+    - SoapClient
+        - Login(username, password)
+        - LoginWithCurrentBook(username, password, bookId)
+        - GetMeters(bookId)
+        - GetMetersByQuery(userId, queryString)
+        - GetMeterByID(meterIDString)
+        - GetCustomerByMeterID(meterIDString)
+        - GetCustomerBills(meterIDString)
+        - GetWaterLogs(meterIDString)
+        - UpdateMeter(updateMeterJsonString)
+        - UpdateFakeMeter(jsonUpdateFakeMeterString)
+        - UpdateComment(meterIDString, currentComment, comment)
+        - UpdateMeterTask(jsonUpdateMeterTaskString)
+        - DeleteMeterTask(meterTaskIDListString)
+        - GetApplicationMeterTasks(CString starter)
+- <update>
+    - UpdateInfo
+    - UpdateService
+
+- </>
+    - LoginActivity         login activity
+    - MainActivity          main activity for meter input
+    - BookListFragment
+    - MeterListFragment
+    - CApplication      about functions of SharedPreferences
+        - getCurrentContext()
+        - loadSharedPreferences()
+        - saveUser(user)
+        - saveCurrentBook(book)
+        - saveCurrentMeter(meter)

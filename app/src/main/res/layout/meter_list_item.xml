@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/ic_customer"
+        android:layout_gravity="top|center_vertical"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_big_user"
+        android:layout_marginRight="10dp" />
+
+    <ImageView
+        android:id="@+id/ic_meter"
+        android:layout_gravity="top|center_vertical"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:src="@drawable/ic_big_meter"
+        android:layout_marginRight="10dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:layout_weight="0"
+            android:text="sample text"
+            android:textColor="#808080"
+            android:layout_gravity="top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:text="sample text"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:text="[已抄表]"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:text="[有欠费]"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:text="[故障]"
+                android:layout_marginRight="8dp"
+                android:textColor="@android:color/holo_red_light" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

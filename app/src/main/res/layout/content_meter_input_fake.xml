@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light"
+    android:id="@+id/root">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补差记录"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:background="@color/slideTitleBarBackground"
+        android:textColor="#FFFFFF"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/header"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="名称"
+            style="@style/fakeColumn1Style" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="水量 | 单价"
+            style="@style/fakeColumn2Style" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金额"
+            style="@style/fakeColumn3Style" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/fakeMeterListView"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice"
+        android:background="@drawable/text_clickable_item_background"
+        android:animateLayoutChanges="true"
+        android:minHeight="200dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/addnewView"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/sectionTitleColor"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:background="@null"
+            android:text="新增项" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="@dimen/fake_column1_width"
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="标题"
+                        android:id="@+id/nameEditText" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <Spinner
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/nameSpinner"
+                    android:spinnerMode="dropdown"
+                    android:dropDownWidth="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priceSpinner"
+                android:spinnerMode="dropdown"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:minWidth="@dimen/fake_column3_width"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="金额"
+                    android:text="0"
+                    android:enabled="false"
+                    android:selectAllOnFocus="true"
+                    android:id="@+id/payEditText"
+                    android:digits="0123456789."
+                    android:inputType="numberDecimal"/>
+            </android.support.design.widget.TextInputLayout>
+            <!--<EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/fake_column3_width"
+                android:hint="金额"
+                android:id="@+id/payEditText"
+                android:inputType="numberSigned"/>-->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:minWidth="@dimen/fake_column1_width"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="水量"
+                    android:text="0"
+                    android:id="@+id/waterQuantityEditText"
+                    android:enabled="true"
+                    android:selectAllOnFocus="true"
+                    android:digits="0123456789"
+                    android:inputType="numberSigned" />
+            </android.support.design.widget.TextInputLayout>
+            <!--<EditText
+                android:layout_width="@dimen/fake_column1_width"
+                android:layout_height="wrap_content"
+                android:hint="水量"
+                android:id="@+id/qtyEditText"
+                android:inputType="none" />-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="用户单价"
+                    android:id="@+id/customerPriceEditText"
+                    android:enabled="false"
+                    android:inputType="none"/>
+            </android.support.design.widget.TextInputLayout>
+            <!--<EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="单价"
+                android:layout_weight="1"
+                android:id="@+id/priceEditText"
+                android:inputType="none"/>-->
+            <Button
+                android:layout_width="@dimen/fake_column3_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="添加"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/addButton" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/actionView"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除"
+            android:layout_weight="1"
+            android:id="@+id/deleteButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提交修改"
+            android:layout_weight="1"
+            android:id="@+id/submitButton" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:layout_weight="1"
+            android:id="@+id/cancelButton" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

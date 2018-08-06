@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textColor">#413e3e</color>
+    <color name="textDisabledColor">#404060</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#6f8df2</color>
+
+    <color name="footerBackground">#E9ECE9</color>
+    <color name="footerEdge">#E0E0E0</color>
+
+    <color name="textColorPrimaryDisableOnly">#000000</color>
+
+    <color name="listViewDividerColor">#E0E0E0</color>
+
+    <color name="sectionTitleColor">#0099CC</color>
+    <color name="slideTitleBarBackground">#0099cc</color>
+
+    <color name="menuItemBackground">@android:color/transparent</color>
+    <color name="menuItemSelectedBackground">#22FFFFFF</color>
+
+    <color name="itemClickableBackground">#00000000</color>
+    <color name="itemClickablePressedBackground">#99cbe4</color>
+
+    <color name="columnBackground">#E3E3E3</color>
+    <color name="tabLayoutBackground">#e3e3e3</color>
+    <color name="newItemTitleBackground">#3cc449</color>
+    <color name="newItemBackground">#e9ece9</color>
+
+    <color name="blueButtonDisableForeground">#C0C0DD</color>
+    <color name="blueButtonForeground">#FFFFFF</color>
+    <color name="blueButtonBackground">#0099CC</color>
+    <color name="blueButtonPressedBackground">#99CBE4</color>
+
+    <color name="windowBackgroundMask">#88000000</color>
+
+    <color name="customerBillCardBackground">#EEEEEE</color>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/background_light">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="修改备注"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:background="@color/slideTitleBarBackground"
+        android:textColor="#FFFFFF"
+        android:gravity="center_horizontal" />
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/progressBar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/currentCommentEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="本月备注"
+                android:enabled="true"
+                android:maxLines="5"
+                android:maxLength="100"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:lines="5" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/commentEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="永久备注"
+                android:enabled="true"
+                android:maxLines="5"
+                android:maxLength="100"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:lines="5" />
+        </android.support.design.widget.TextInputLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="提交修改"/>
+            <Button
+                android:id="@+id/closeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="关闭"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

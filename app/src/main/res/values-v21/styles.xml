@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/textColorPrimaryDisableOnly</item>
+
+        <item name="editTextStyle">@style/appEditTextStyle</item>
+        <item name="buttonStyle">@style/appButtonStyle</item>
+    </style>
+    <style name="appEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@drawable/edit_text_color</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+
+</resources>

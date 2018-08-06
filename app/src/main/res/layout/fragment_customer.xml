@@ -1,0 +1,326 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context="com.bdwater.meterinput.main.CustomerFragment">
+
+    <ScrollView
+        android:id="@+id/root"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tabLayoutBackground"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/ic_big_user" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="bottom">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用户编号：12345"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:padding="4dp"
+                            android:id="@+id/customerNo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="类型：xxxx"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:padding="4dp"
+                            android:id="@+id/customerCategoryTitle"
+                            android:layout_marginLeft="10dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="用户名称"
+                        android:id="@+id/name"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地址：xxxx-xxx"
+                        android:id="@+id/address"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系电话：12345678901"
+                        android:id="@+id/phone"
+                        android:padding="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="余额：0.00"
+                        android:id="@+id/deposit"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="部门代码：X00"
+                        android:id="@+id/departmentCode"
+                        android:layout_marginLeft="20dp" />
+
+                    <!--<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="评级："
+                        android:layout_marginLeft="20dp" />-->
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/starGradeRatingBar"
+                        android:layout_marginLeft="20dp"
+                        android:rating="5"
+                        android:numStars="5"
+                        android:indeterminateOnly="false"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:background="@color/accent_material_dark" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="市场评级：" />
+
+                    <RatingBar
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/markGradeRatingBar"
+                        android:layout_marginLeft="10dp"
+                        android:rating="5"
+                        android:numStars="10"
+                        android:indeterminateOnly="false"
+                        android:background="@color/accent_material_dark" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/VATPanel"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/accentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="公户信息"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="银行名称：xxxxxxxxxx"
+                    android:id="@+id/accountBank"
+                    android:layout_marginLeft="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账号：xxxxxxxxxx"
+                    android:id="@+id/accounts"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="税号：xxxxxxxxxx"
+                    android:id="@+id/taxNum"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/accentTextView"
+                android:text="水表信息"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人数：0"
+                    android:id="@+id/peoples"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抄表薄：00000 － xxxxxx"
+                    android:id="@+id/bookTitle"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="卡片编号：0000"
+                    android:id="@+id/cardIndex"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用水性质：xxxxxxxxxx － 0.00"
+                    android:id="@+id/waterPriceTitle"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="安装位置：xxxxxxxxxx"
+                    android:id="@+id/meterPosition"
+                    android:layout_marginTop="10dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="口径：00"
+                        android:id="@+id/meterCaliber" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="安装时间：yyyy－MM－dd"
+                        android:id="@+id/installDate"
+                        android:layout_marginLeft="20dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/accentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="水量"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用水总量：0"
+                    android:id="@+id/totalQty"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:textColor="@color/colorAccent" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="第一阶梯水量：000"
+                        android:id="@+id/firstLevelQty" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="第二阶梯水价：000"
+                        android:id="@+id/secondLevelQty"
+                        android:layout_marginLeft="20dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="第三阶梯水量：000"
+                    android:id="@+id/thirdLevelQty"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.v4.widget.SwipeRefreshLayout>

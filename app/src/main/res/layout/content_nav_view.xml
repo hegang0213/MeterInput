@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/nav_hear"
+        layout="@layout/nav_header_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_below="@+id/nav_hear"
+        android:layout_above="@+id/logoutButton"
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        android:measureAllChildren="false">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="当前抄表薄"
+                style="@style/textItemStyle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/currentBook"
+                style="@style/textClickableItemStyle" />
+
+            <TextView
+                style="@style/textItemStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="当前用户" />
+
+            <TextView
+                style="@style/textClickableItemStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/currentMeter" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="维修申请"
+        android:id="@+id/maintainApplyButton"
+        android:layout_alignParentEnd="false"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

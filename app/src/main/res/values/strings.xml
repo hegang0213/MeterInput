@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">保定供水手持抄表系统</string>
+
+    <string name="search_query_hint">用户名称或编号</string>
+    <string name="reached_first_meter">已经到第一块水表了，请选择新的抄表薄</string>
+    <string name="reached_last_meter">已经到最后一块水表了，请选择新的抄表薄</string>
+
+    <string name="tab_meter_input">水表录入</string>
+    <string name="tab_customer_bill">欠费账单</string>
+    <string name="tab_water_log">用水记录</string>
+    <string name="tab_detail">详细信息</string>
+
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="meter_has_checked">已抄表</string>
+    <string name="meter_unchecked">未抄表</string>
+    <string name="fake_meter">补差主表</string>
+
+    <string name="swipe_down_refresh_hint">下拉刷新内容</string>
+
+    <string name="network_error">网络不可或尚未链接，请确认后再试</string>
+
+    <string name="success">成功</string>
+    <string name="update_comment_finish">备注提交成功，\n\n点击屏幕其它位置关闭</string>
+    <string name="update_finish">数据已经提交完成，查看［欠费］需要刷新\n\n点击屏幕其它位置关闭</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">用户名全拼</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_username">无效的用户名</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">无效的密码</string>
+    <string name="error_field_required">此项需要输入内容</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_meter_task">维修申请</string>
+</resources>
